@@ -1,0 +1,27 @@
+{
+  "name": "mojojs.org",
+  "version": "1.0.0",
+  "description": "mojo.js website",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojolicious/mojojs.org.git"
+  },
+  "keywords": [
+    "web",
+    "framework"
+  ],
+  "author": "",
+  "license": "CC-BY-NC-ND-4.0",
+  "bugs": {
+    "url": "https://github.com/mojolicious/mojojs.org/issues"
+  },
+  "homepage": "https://github.com/mojolicious/mojojs.org#readme",
+  "dependencies": {
+    "@mojojs/core": "^0.1.0"
+  }
+}
