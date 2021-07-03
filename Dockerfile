@@ -1,7 +1,7 @@
 FROM node:latest
 WORKDIR /opt/mojojs
 
-COPY package.json package-lock.json .
+COPY package.json package-lock.json ./
 
 #TODO build from mojojs source repo
 RUN npm ci --only=production
