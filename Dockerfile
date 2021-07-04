@@ -10,5 +10,5 @@ COPY index.js .
 
 EXPOSE 3000
 ENTRYPOINT ["node", "index.js"]
-CMD ["server", "--cluster", "--level", "info"]
+CMD ["server", "--cluster", "--level", "debug"]
 
