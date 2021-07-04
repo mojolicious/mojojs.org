@@ -35,6 +35,6 @@ jobs:
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-      #- name: Rollout
-      #  run: |
-      #    kubectl rollout restart deployment mojojs-org && kubectl rollout status deployment mojojs-org
+      - name: Rollout
+        run: |
+          kubectl rollout restart deployment mojojs-org && kubectl rollout status deployment mojojs-org
