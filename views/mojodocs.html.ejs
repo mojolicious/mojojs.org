@@ -1,0 +1,29 @@
+<%
+  view.layout = 'mojolicious';
+  view.contentFor = view.contentFor ?? {};
+  view.contentFor.header = await ctx.styleTag('/mojodocs.css');
+-%>
+<a id="toc"></a>
+<div class="container-fluid">
+  <div class="row flex-wrap">
+    <aside class="col-sm-12 col-md-4 col-lg-2 mojo-sidebar">
+    </aside>
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5 mojo-main">
+      <div class="mojo-docinfo">
+        <div>
+          <div class="mojo-docnav">
+            <a class="nav-link" alt="API" href="https://docs.mojolicious.org#API"><i class="fas fa-book"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="mojo-external">
+      </div>
+      <div class="mojo-perldoc">
+        <%- doc %>
+      </div>
+    </main>
+  </div>
+</div>
+<footer>
+  <%- await ctx.include('footer') %>
+</footer>

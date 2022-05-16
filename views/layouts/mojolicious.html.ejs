@@ -1,0 +1,22 @@
+<% view.contentFor = view.contentFor ?? {} -%>
+<!doctype html><html>
+  <head>
+    <link rel="apple-touch-icon" href="/mojolicious/touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/mojolicious/touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/mojolicious/touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/mojolicious/touch-icon-180x180.png">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Mojolicious" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title || 'Mojolicious - Perl real-time web framework' %></title>
+    <%- ctx.scriptTag('/mojolicious/jquery/jquery.js') %>
+    <%- ctx.scriptTag('/mojolicious/highlight.js/highlight.min.js') %>
+    <%- ctx.styleTag('/mojolicious/highlight.js/highlight-mojo-light.css') %>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <%- ctx.scriptTag('/mojolicious/bootstrap/bootstrap.js') %>
+    <%- ctx.styleTag('/mojolicious/bootstrap/bootstrap.css') %>
+    <%- ctx.styleTag('/mojolicious/fontawesome/fontawesome.css') %>
+    <%- ctx.styleTag('/app.css?v=3') %>
+    <%- view.contentFor['header'] ?? '' %>
+  </head>
+  <body><%- view.content %></body>
+</html>

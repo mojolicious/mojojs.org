@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e js,json,ejs -- index.js server --proxy"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,12 @@
   },
   "homepage": "https://github.com/mojolicious/mojojs.org#readme",
   "dependencies": {
-    "@mojojs/core": "^0.1.0"
+    "@mojojs/core": "^0.7.6",
+    "@mojojs/dom": "^1.2.3",
+    "@mojojs/path": "^1.1.9",
+    "commonmark": "^0.30.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
