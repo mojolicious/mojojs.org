@@ -1,0 +1,48 @@
+main {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.mojobar {
+  background-color: #1a1a1a;
+}
+.mojobar #navbarNav .nav-link {
+  color: #bbb;
+}
+.mojobar #navbarNav .nav-link:hover {
+  color: #fff;
+}
+.mojobar #navbarNav input[type=search] {
+  background-color: #3a3a3a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  color: #eee;
+  padding: 6px;
+  margin-left: 1em;
+  transition: all 0.15s;
+}
+.mojobar #navbarNav input[type="search"]:focus {
+  background-color: #fff;
+  color: #111;
+  outline: 0;
+}
+.mojo-copy {
+  font-size: 12px;
+}
+.mojo-copy, .mojo-copy a {
+  color: #777;
+}
+.mojo-footer {
+  background: url(/public/mojo/pinstripe-light.png);
+  background-color: #f2ece9;
+  box-shadow: inset 0 10px 10px -5px #ddd;
+  color: #666;
+}
+.mojo-footer a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.mojo-social a {
+  color: #666;
+  font-size: 1.5em;
+  padding: 0.2em;
+}

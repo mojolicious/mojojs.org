@@ -21,7 +21,15 @@
     "url": "https://github.com/mojolicious/mojojs.org/issues"
   },
   "homepage": "https://github.com/mojolicious/mojojs.org#readme",
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
+  },
   "dependencies": {
-    "@mojojs/core": "^0.1.0"
+    "@mojojs/core": "^0.34.1"
   }
 }

@@ -1,0 +1,166 @@
+% view.layout = 'default';
+<{headerBlock}>
+  %= ctx.styleTag('/mojo.css')
+<{/headerBlock}>
+% ctx.contentFor('header', await headerBlock());
+<div id="mojo-fun">
+  <a href="https://metacpan.org/release/Mojolicious">
+    %= ctx.imageTag('/mojo/unicorn.png')
+  </a>
+  %= ctx.imageTag('/mojo/balloon.png', {id: 'mojo-balloon'})
+</div>
+<header>
+  %= await ctx.include('menubar')
+</header>
+<div class="container">
+  <div class="row flex-wrap">
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
+      <div class="mojo-intro">
+        <div class="mojo-fortune">
+          <h1><%= ctx.fortune() %></h1>
+          <p>
+            mojo.js is a fresh take on JavaScript web development, based on years of experience developing the
+            Mojolicious and Catalyst frameworks, and utilizing the latest web standards and technologies. You can get
+            started with your project quickly, with a framework that grows with your needs.
+          </p>
+          <p>Join us now, and be a part of a friendly and knowledgeable community of developers!</p>
+        </div>
+        <h2>Features</h2>
+        <div class="row">
+          <div class="col-md">
+            <ul>
+              <li>
+                A <i>real-time web framework</i>, allowing you to easily grow single file prototypes into
+                well-structured MVC web applications.
+                <ul>
+                  <li>
+                    Powerful out of the box with RESTful routes, WebSockets, plugins, commands, logging, templates,
+                    content negotiation, session management, form and JSON validation, testing framework, static file
+                    server, cluster mode, CGI detection, first class Unicode support and much more for you to discover.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                A powerful web development toolkit, that you can use for all kinds of applications, independently of
+                the web framework.
+                <ul>
+                  <li>
+                    High performance HTTP and WebSocket client/server implementation with support for HTTPS/WSS,
+                    cookies, redirects, urlencoded/multi-part forms, file uploads, JSON/YAML, HTML/XML, mocking, API
+                    testing, HTTP/SOCKS proxies, and gzip compression.
+                  </li>
+                  <li>
+                    HTML/XML parser with CSS selector support.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Very clean, <code>class</code> and <code>async</code>/<code>await</code> based API, written in
+                TypeScript, with very few requirements to avoid NPM dependency hell and allow for "Perl-grade" long
+                term support.
+              </li>
+              <li>
+                Fresh code based upon decades of experience developing
+                <a href="https://mojolicious.org" target="_blank">Mojolicious</a> and
+                <a href="http://catalyst.perl.org" target="_blank">Catalyst</a>, free and open source.
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs mojo-promotion">
+            <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
+              %= ctx.imageTag('/mojo/t-shirts.png', {alt: 'T-Shirts'})
+            </a>
+          </div>
+        </div>
+        <div class="mojo-install">
+          <h2>Installation</h2>
+          <p>All you need is Node.js 16.0.0 (or newer).</p>
+          <pre class="mojo-terminal"><code class="nohighlight">$ npm install @mojojs/core</code></pre>
+        </div>
+        <div class="mojo-start">
+          <h2>Getting Started</h2>
+          <p>These four lines are a whole web application.</p>
+          <pre><code>import mojo from '@mojojs/core';
+
+const app = mojo();
+
+app.get('/', ctx => ctx.render({text: 'I ♥ Mojo!'}));
+
+app.start();</code></pre>
+          <p>
+            Use the built-in command system to start your web server.
+          </p>
+          <pre class="mojo-terminal"><code class="nohighlight">$ node index.mjs server
+[77264] Web application available at http://127.0.0.1:3000/</code></pre>
+          <p>
+            Test it with any HTTP client you prefer.
+          </p>
+          <pre class="mojo-terminal"><code class="nohighlight">$ curl http://127.0.0.1:3000/
+I ♥ Mojo!</code></pre>
+        </div>
+        <div class="mojo-tape">
+          <h2>Duct Tape for the Web</h2>
+          <p>
+            Use all the latest Node.js and HTML features in convenient single file prototypes like this one, and grow
+            them easily into well-structured <b>Model-View-Controller</b> web applications.
+          </p>
+          <pre><code>import mojo from '@mojojs/core';
+
+const app = mojo();
+
+app.get('/', async ctx =&gt; {
+  await ctx.render({inline: inlineTemplate});
+});
+
+app.websocket('/title', ctx =&gt; {
+  ctx.plain(async ws =&gt; {
+    for await (const url of ws) {
+      const res   = await ctx.ua.get(url);
+      const html  = await res.html();
+      const title = html.at('title').text();
+      ws.send(title);
+    }
+  });
+});
+
+app.start();
+
+const inlineTemplate = `
+&lt;script&gt;
+  const ws = new WebSocket('&lt;%= ctx.urlFor('title') %&gt;');
+  ws.onmessage = event =&gt; { document.body.innerHTML += event.data };
+  ws.onopen    = event =&gt; { ws.send('https://mojolicious.org') };
+&lt;/script&gt;
+`;</code></pre>
+        </div>
+        <div class="mojo-more">
+          %= ctx.imageTag('/mojo/butterfly.png', {class: 'mojo-butterfly'})
+          <h1>Want to know more?</h1>
+          <p>
+            Take a look at our <a href="https://github.com/mojolicious/mojo.js/tree/main/docs">documentation</a>!
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<footer>
+  %= await ctx.include('footer')
+</footer>
+<script>
+  $(window).on("mousemove", function (e) {
+    const height    = $(document).height();
+    const positionY = -(height - 2 * e.screenY) / height;
+    const width     = $(document).width();
+    const positionX = -(width - 2 * e.screenX) / width;
+    $("#mojo-balloon").css({
+      "right": 10 + positionX + "%",
+      "top"  : 220 + (positionY * -25) + "px"}
+    );
+  });
+  $(window).on("mousemove", function (e) {
+    const width    = $(document).width();
+    const position = -(width - 2 * e.screenX) / width;
+    $("#mojo-fun").css({"backgroundPosition": 0 + (position * 3) + "px 0"});
+  });
+</script>
