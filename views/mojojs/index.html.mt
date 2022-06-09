@@ -30,7 +30,7 @@
           <div class="col-md">
             <ul>
               <li>
-                A <i>real-time web framework</i>, allowing you to easily grow single file prototypes into
+                A <b>real-time web framework</b>, allowing you to easily grow single file prototypes into
                 well-structured MVC web applications.
                 <ul>
                   <li>
@@ -41,8 +41,8 @@
                 </ul>
               </li>
               <li>
-                A powerful web development toolkit, that you can use for all kinds of applications, independently of
-                the web framework.
+                A powerful <b>web development toolkit</b>, that you can use for all kinds of applications,
+                independently of the web framework.
                 <ul>
                   <li>
                     High performance HTTP and WebSocket client/server implementation with support for HTTPS/WSS,
