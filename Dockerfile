@@ -3,11 +3,10 @@ WORKDIR /opt/mojojs
 
 COPY package.json package-lock.json ./
 
-#TODO build from mojojs source repo
-RUN npm ci --only=production
+RUN npm ci
 
 COPY index.js .
 
 EXPOSE 3000
-ENTRYPOINT ["node", "index.js"]
-CMD ["server", "--cluster", "--level", "debug"]
+ENTRYPOINT ["node", "redirect.js"]
+CMD ["server", "--level", "debug"]
