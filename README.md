@@ -7,11 +7,13 @@
   </a>
 </p>
 
+[![](https://github.com/mojolicious/mojojs.org/workflows/test/badge.svg)](https://github.com/mojolicious/mojojs.org/actions)
+
 The [mojo.js](http://mojojs.org) website.
 
 ## Copyright And License
 
-Copyright (C) 2021, Sebastian Riedel.
+Copyright (C) 2022, Sebastian Riedel.
 
 Licensed under the CC-NC-ND License, Version 4.0
 [http://creativecommons.org/licenses/by-nc-nd/4.0](http://creativecommons.org/licenses/by-nc-nd/4.0).

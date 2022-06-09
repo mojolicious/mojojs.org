@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint \"test/*.js\" \"plugins/*.js\" \"*.js\"",
+    "test": "tap --no-coverage test/*.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "tap": "^16.2.0"
   },
   "dependencies": {
     "@mojojs/core": "^0.35.0"

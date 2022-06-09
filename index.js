@@ -2,7 +2,7 @@ import fortunePlugin from './plugins/fortune.js';
 import mojo from '@mojojs/core';
 import Path from '@mojojs/path';
 
-const app = mojo();
+export const app = mojo();
 app.plugin(fortunePlugin, {path: Path.currentFile().sibling('fortune.txt').toString()});
 
 app.get('/', async ctx => {
