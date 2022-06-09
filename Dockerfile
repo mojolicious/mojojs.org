@@ -11,4 +11,4 @@ RUN npm i
 
 EXPOSE 3000
 ENTRYPOINT ["node", "index.js"]
-CMD ["server", "--level", "trace"]
+CMD ["server", "--proxy", "--level", "trace"]
