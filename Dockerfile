@@ -1,12 +1,14 @@
 FROM node:latest
 WORKDIR /opt/mojojs
 
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json index.js fortune.txt ./
+COPY plugins ./plugins
+COPY public ./public
+COPY views ./views
+RUN find .
 
-RUN npm ci
-
-COPY index.js .
+RUN npm i
 
 EXPOSE 3000
-ENTRYPOINT ["node", "redirect.js"]
-CMD ["server", "--level", "debug"]
+ENTRYPOINT ["node", "index.js"]
+CMD ["server", "--level", "trace"]
