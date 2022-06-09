@@ -7,7 +7,6 @@ COPY public ./public
 COPY views ./views
 
 RUN wget https://github.com/mojolicious/mojo.js/archive/refs/heads/main.tar.gz && tar xvf main.tar.gz mojo.js-main/docs --strip-components=1 && rm main.tar.gz
-COPY docs ./docs
 
 RUN find .
 
