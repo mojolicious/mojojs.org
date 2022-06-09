@@ -19,7 +19,7 @@
         <div class="mojo-fortune">
           <h1><%= ctx.fortune() %></h1>
           <p>
-            mojo.js is a fresh take on JavaScript web development, based on years of experience developing the
+            mojo.js is a fresh take on <b>JavaScript</b> web development, based on years of experience developing the
             Mojolicious and Catalyst frameworks, and utilizing the latest web standards and technologies. You can get
             started with your project quickly, with a framework that grows with your needs.
           </p>
