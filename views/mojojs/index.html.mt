@@ -4,7 +4,7 @@
 <{/headerBlock}>
 % ctx.contentFor('header', await headerBlock());
 <div id="mojo-fun">
-  <a href="https://metacpan.org/release/Mojolicious">
+  <a href="https://www.npmjs.com/package/@mojojs/core">
     %= ctx.imageTag('/mojo/unicorn.png')
   </a>
   %= ctx.imageTag('/mojo/balloon.png', {id: 'mojo-balloon'})

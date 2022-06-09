@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark mojobar">
-  <a href="https://mojolicious.org" id="mojobar-brand" class="navbar-brand">
+  <a href="https://mojojs.org" id="mojobar-brand" class="navbar-brand">
     <picture>
       <img src="<%= ctx.urlForFile('/mojo/logo-white.png') %>"
         srcset="<%= ctx.urlForFile('/mojo/logo-white-2x.png') %> 2x">

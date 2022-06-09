@@ -4,8 +4,8 @@
       <b>Free</b> and <b>Open Source</b>.
     </div>
     <div class="col-sm align-self-center text-center mojo-copy">
-        <i class="far fa-copyright"></i> 2008-2022 Sebastian Riedel and the
-        <a href="https://docs.mojolicious.org/Mojolicious#AUTHORS">Mojolicious contributors</a>.
+        <i class="far fa-copyright"></i> 2022 Sebastian Riedel and the
+        <a href="https://github.com/mojolicious/mojo.js/blob/main/AUTHORS">Mojolicious contributors</a>.
     </div>
     <div class="col-sm align-self-center text-center mojo-social">
       <a alt="GitHub" href="https://github.com/mojolicious/mojo.js"><i class="fab fa-github-alt"></i></a>
