@@ -11,7 +11,7 @@ export default function docsPlugin(app, config) {
 }
 
 async function docsHandler(ctx, dir) {
-  const file = ctx.stash.file ?? 'Introduction.md';
+  const file = ctx.stash.file ?? 'README.md';
   const path = dir.child(...file.split('/'));
 
   if (await path.exists()) {
