@@ -1,3 +1,4 @@
+import DOM from '@mojojs/dom';
 import {Parser, HtmlRenderer} from 'commonmark';
 
 export default function docsPlugin(app, config) {
@@ -17,9 +18,11 @@ async function docsHandler(ctx, dir) {
     const reader = new Parser();
     const writer = new HtmlRenderer();
     const parsed = reader.parse(await path.readFile('utf-8'));
-    const result = writer.render(parsed);
+    const rendered = writer.render(parsed);
+    const dom = new DOM(rendered);
+    const docs = dom.toString();
 
-    await ctx.render({text: result});
+    await ctx.render({view: 'mojojs/docs'}, {docs});
   } else {
     await ctx.notFound();
   }

@@ -1,0 +1,14 @@
+% view.layout = 'default';
+<{headerBlock}>
+  %= ctx.styleTag('/docs.css')
+<{/headerBlock}>
+% ctx.contentFor('header', await headerBlock());
+<header>
+  %= await ctx.include('menubar')
+</header>
+<div class="container">
+  %== docs
+</div>
+<footer>
+  %= await ctx.include('footer')
+</footer>
