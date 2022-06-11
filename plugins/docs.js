@@ -31,6 +31,14 @@ async function docsHandler(ctx, dir) {
     const docTitle = dom.at('h1');
     if (docTitle !== null) title = docTitle.text();
 
+    // Rewrite images
+    for (const img of dom.find('img')) {
+      img.attr['style'] = 'max-width: 100%;';
+      const src = img.attr['src'];
+      if (src === undefined || src.startsWith('images') !== true) continue;
+      img.attr['src'] = ctx.urlForFile(`/${src}`);
+    }
+
     // Rewrite headers
     const parts = [];
     for (const el of dom.find('h1, h2, h3, h4')) {
