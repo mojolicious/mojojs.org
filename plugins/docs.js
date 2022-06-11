@@ -13,6 +13,10 @@ export default function docsPlugin(app, config) {
 
 async function docsHandler(ctx, dir) {
   const file = ctx.stash.file ?? 'README.md';
+
+  // Ensure "/docs/"
+  if (ctx.stash.file === null && ctx.req.url.endsWith('/') === false) return ctx.redirectTo('/docs/');
+
   const path = dir.child(...file.split('/'));
 
   if (await path.exists()) {
