@@ -26,6 +26,11 @@ async function docsHandler(ctx, dir) {
     const rendered = writer.render(parsed);
     const dom = new DOM(rendered);
 
+    // Try to find a title
+    let title = 'Documentation';
+    const docTitle = dom.at('h1');
+    if (docTitle !== null) title = docTitle.text();
+
     // Rewrite headers
     const parts = [];
     for (const el of dom.find('h1, h2, h3, h4')) {
@@ -38,11 +43,6 @@ async function docsHandler(ctx, dir) {
       const permaLink = `<a href="${link}" class="permalink">#</a>`;
       el.replaceContent(permaLink + `<a href="#toc">${text}</a>`);
     }
-
-    // Try to find a title
-    let title = 'Documentation';
-    const docTitle = dom.at('h1');
-    if (docTitle !== null) title = docTitle.text();
 
     const docs = dom.toString();
     await ctx.render({view: 'mojojs/docs'}, {docs, file, parts, title, version});
