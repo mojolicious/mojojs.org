@@ -57,63 +57,63 @@ ul { list-style-type: square }
 .mojo-parent {
   float: right;
 }
-.mojo-perldoc {
+.mojo-doc {
   color: #445555;
 }
-.mojo-perldoc a {
+.mojo-doc a {
   color: #000;
   background-color: rgba(187,239,253,0.3);
   border-bottom: 1px solid rgba(0,0,0,0.2);
 }
-.mojo-perldoc a:hover {
+.mojo-doc a:hover {
   background-color: #bbeffd;
   border-bottom-color: #1a1a1a;
   text-decoration: none;
 }
-.mojo-perldoc dd {
+.mojo-doc dd {
   margin: 0;
   margin-left: 2em;
 }
-.mojo-perldoc dt {
+.mojo-doc dt {
   color: #2a2a2a;
   font-weight: bold;
   margin-left: 0.9em;
 }
-.mojo-perldoc li > p {
+.mojo-doc li > p {
   margin-bottom: 0;
   margin-top: 0;
 }
-.mojo-perldoc h1 {
+.mojo-doc h1 {
   font-size: 2em;
 }
-.mojo-perldoc h2 {
+.mojo-doc h2 {
   font-size: 1.5em
 }
-.mojo-perldoc h3 {
+.mojo-doc h3 {
   font-size: 1.2em;
 }
-.mojo-perldoc h4 {
+.mojo-doc h4 {
   font-size: 1em;
 }
-.mojo-perldoc h1, .mojo-perldoc h2, .mojo-perldoc h3, .mojo-perldoc h4 {
+.mojo-doc h1, .mojo-doc h2, .mojo-doc h3, .mojo-doc h4 {
   line-height: 1.3;
   margin: 0;
   margin-top: 0.75em;
   padding-bottom: 0.2em;
   position: relative;
 }
-.mojo-perldoc h1 a, .mojo-perldoc h2 a, .mojo-perldoc h3 a, .mojo-perldoch4 a {
+.mojo-doc h1 a, .mojo-doc h2 a, .mojo-doc h3 a, .mojo-doch4 a {
   background: 0;
   border: 0;
   color: #000;
   font-weight: 600;
   text-decoration: none;
 }
-.mojo-perldoc h1 a:hover, .mojo-perldoc h2 a:hover, .mojo-perldoc h3 a:hover, .mojo-perldoch4 a:hover {
+.mojo-doc h1 a:hover, .mojo-doc h2 a:hover, .mojo-doc h3 a:hover, .mojo-doch4 a:hover {
   background: 0;
   text-decoration: none;
 }
-.mojo-perldoc h1 a {
+.mojo-doc h1 a {
   font-weight: 300;
 }
 .mojo-sidebar {

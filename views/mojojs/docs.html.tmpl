@@ -6,8 +6,35 @@
 <header>
   %= await ctx.include('menubar')
 </header>
-<div class="container">
-  %== docs
+<div class="container-fluid">
+  <div class="row flex-wrap">
+    <aside class="col-sm-12 col-md-4 col-lg-2 mojo-sidebar">
+      <form class="mojo-version d-flex align-items-center">
+        <fieldset disabled>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="v1.0">
+        </fieldset>
+      </form>
+      <ul>
+        <li>Placeholder</li>
+      </ul>
+    </aside>
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5 mojo-main">
+      <div class="mojo-docinfo">
+        <div>
+          <div class="mojo-docnav">
+            <a class="nav-link" alt="Index" href="https://mojojs.org/docs"><i class="fas fa-book"></i></a>
+          </div>
+          Placeholder
+        </div>
+      </div>
+      <div class="mojo-external">
+        <a class="btn btn-outline-secondary btn-sm" href="https://placeholder" role="button">GitHub</a>
+      </div>
+      <div class="mojo-doc">
+        %== docs
+      </div>
+    </main>
+  </div>
 </div>
 <footer>
   %= await ctx.include('footer')
