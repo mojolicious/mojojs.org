@@ -1,3 +1,4 @@
+import {version} from '@mojojs/core';
 import DOM from '@mojojs/dom';
 import {Parser, HtmlRenderer} from 'commonmark';
 
@@ -22,7 +23,7 @@ async function docsHandler(ctx, dir) {
     const dom = new DOM(rendered);
     const docs = dom.toString();
 
-    await ctx.render({view: 'mojojs/docs'}, {docs});
+    await ctx.render({view: 'mojojs/docs'}, {docs, version});
   } else {
     await ctx.notFound();
   }
