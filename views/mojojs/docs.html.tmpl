@@ -3,6 +3,7 @@
   %= ctx.styleTag('/docs.css')
 <{/headerBlock}>
 % ctx.contentFor('header', await headerBlock());
+<a id="toc"></a>
 <header>
   %= await ctx.include('menubar')
 </header>
@@ -24,11 +25,11 @@
           <div class="mojo-docnav">
             <a class="nav-link" alt="Index" href="https://mojojs.org/docs"><i class="fas fa-book"></i></a>
           </div>
-          Placeholder
+          %= file
         </div>
       </div>
       <div class="mojo-external">
-        <a class="btn btn-outline-secondary btn-sm" href="https://placeholder" role="button">GitHub</a>
+        <a class="btn btn-outline-secondary btn-sm" href="https://github.com/mojolicious/mojo.js/tree/main/docs/<%= file %>" role="button">GitHub</a>
       </div>
       <div class="mojo-doc">
         %== docs

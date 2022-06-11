@@ -22,13 +22,26 @@ async function docsHandler(ctx, dir) {
     const rendered = writer.render(parsed);
     const dom = new DOM(rendered);
 
+    // Rewrite headers
+    const parts = [];
+    for (const el of dom.find('h1, h2, h3, h4')) {
+      if (el.tag === 'h1' || parts.length === 0) parts.push([]);
+      const text = el.text();
+      const id = text.replaceAll(' ', '-');
+      el.attr['id'] = id;
+      const link = '#' + id;
+      parts[parts.length - 1].push(text, link);
+      const permaLink = `<a href="${link}" class="permalink">#</a>`;
+      el.replaceContent(permaLink + `<a href="#toc">${text}</a>`);
+    }
+
     // Try to find a title
     let title = 'Documentation';
     const docTitle = dom.at('h1');
     if (docTitle !== null) title = docTitle.text();
 
     const docs = dom.toString();
-    await ctx.render({view: 'mojojs/docs'}, {docs, title, version});
+    await ctx.render({view: 'mojojs/docs'}, {docs, file, title, version});
   } else {
     await ctx.notFound();
   }
