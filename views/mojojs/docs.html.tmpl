@@ -16,14 +16,27 @@
         </fieldset>
       </form>
       <ul>
-        <li>Placeholder</li>
+        % for (const part of parts) {
+          <li>
+            % const [text, target] = part.splice(0,2);
+            <a href="<%= target %>"><b><%= text %></b></a>
+            % if (part.length > 0) {
+              <ul>
+                % while (part.length > 0) {
+                  % const [text, target] = part.splice(0,2);
+                  <li><a href="<%= target %>"><%= text %></a></li>
+                % }
+              </ul>
+            % }
+          </li>
+        % }
       </ul>
     </aside>
     <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5 mojo-main">
       <div class="mojo-docinfo">
         <div>
           <div class="mojo-docnav">
-            <a class="nav-link" alt="Index" href="https://mojojs.org/docs"><i class="fas fa-book"></i></a>
+            <a class="nav-link" alt="Index" href="https://mojojs.org/docs/"><i class="fas fa-book"></i></a>
           </div>
           %= file
         </div>
@@ -40,3 +53,24 @@
 <footer>
   %= await ctx.include('footer')
 </footer>
+<script>
+  const links    = document.querySelectorAll('.mojo-sidebar ul li a[href^="#"]');
+  const linkById = Object.fromEntries(Array.from(links).map(e => [e.getAttribute('href').substr(1), e]));
+  const sections = Array.from(links).map(e => document.getElementById(e.getAttribute('href').substr(1))).reverse();
+
+  let lastSectionId;
+  let mojoOnScroll = () => {
+    const pos = (document.documentElement.scrollTop || document.body.scrollTop) - 63;
+
+    const section = sections.find(e => e.offsetTop <= pos);
+    if (!section) return;
+
+    if (section.id == lastSectionId) return;
+    lastSectionId = section.id;
+
+    links.forEach(e => e.classList.remove('font-weight-bold'));
+    linkById[section.id].classList.add('font-weight-bold');
+  };
+  window.onscroll = mojoOnScroll;
+  mojoOnScroll();
+</script>

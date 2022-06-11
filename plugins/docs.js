@@ -29,7 +29,7 @@ async function docsHandler(ctx, dir) {
     // Rewrite headers
     const parts = [];
     for (const el of dom.find('h1, h2, h3, h4')) {
-      if (el.tag === 'h1' || parts.length === 0) parts.push([]);
+      if (el.tag === 'h1' || el.tag === 'h2' || parts.length === 0) parts.push([]);
       const text = el.text();
       const id = text.replaceAll(' ', '-');
       el.attr['id'] = id;
@@ -45,7 +45,7 @@ async function docsHandler(ctx, dir) {
     if (docTitle !== null) title = docTitle.text();
 
     const docs = dom.toString();
-    await ctx.render({view: 'mojojs/docs'}, {docs, file, title, version});
+    await ctx.render({view: 'mojojs/docs'}, {docs, file, parts, title, version});
   } else {
     await ctx.notFound();
   }
