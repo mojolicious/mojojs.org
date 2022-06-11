@@ -12,7 +12,7 @@ const docDirs = ['../mojo.js/docs', 'docs'];
 for (const docDir of docDirs) {
   const dir = current.sibling(...docDir.split('/'));
   if (dir.existsSync() === false) continue;
-  const route = app.any('/docs/*file');
+  const route = app.any('/docs/*file').to({file: null});
   app.plugin(docsPlugin, {dir, route});
   break;
 }
