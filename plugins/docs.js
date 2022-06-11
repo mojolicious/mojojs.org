@@ -21,9 +21,14 @@ async function docsHandler(ctx, dir) {
     const parsed = reader.parse(await path.readFile('utf-8'));
     const rendered = writer.render(parsed);
     const dom = new DOM(rendered);
-    const docs = dom.toString();
 
-    await ctx.render({view: 'mojojs/docs'}, {docs, version});
+    // Try to find a title
+    let title = 'Documentation';
+    const docTitle = dom.at('h1');
+    if (docTitle !== null) title = docTitle.text();
+
+    const docs = dom.toString();
+    await ctx.render({view: 'mojojs/docs'}, {docs, title, version});
   } else {
     await ctx.notFound();
   }
