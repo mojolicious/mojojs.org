@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="<%= ctx.urlForFile('/mojo/touch-icon-180x180.png') %>">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= ctx.stash.title ?? 'mojo.js - JavaScript real-time web framework' %></title>
-    %= ctx.mojoFaviconTag()
+    %= ctx.faviconTag()
     %= ctx.scriptTag('/mojo/jquery/jquery.js')
     %= ctx.scriptTag('/mojo/highlight.js/highlight.min.js')
     %= ctx.styleTag('/mojo/highlight.js/highlight-mojo-light.css')
