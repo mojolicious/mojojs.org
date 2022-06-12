@@ -44,7 +44,7 @@ async function docsHandler(ctx, dir) {
     for (const el of dom.find('h1, h2, h3, h4')) {
       if (el.tag === 'h1' || el.tag === 'h2' || parts.length === 0) parts.push([]);
       const text = el.text();
-      const id = text.replaceAll(' ', '-');
+      const id = text.replaceAll(' ', '-').toLowerCase();
       el.attr['id'] = id;
       const link = '#' + id;
       parts[parts.length - 1].push(text, link);
