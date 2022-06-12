@@ -52,6 +52,13 @@ async function docsHandler(ctx, dir) {
       el.replaceContent(permaLink + `<a href="#toc">${text}</a>`);
     }
 
+    // Fix highlighting
+    for (const el of dom.find('pre > code')) {
+      const attr = el.attr['class'] ?? '';
+      if (/langauge-.+/.test(attr) === true) continue;
+      el.attr['class'] = attr === '' ? 'nohighlight' : `${attr} nohighlight`;
+    }
+
     const docs = dom.toString();
     await ctx.render({view: 'mojojs/docs'}, {docs, file, parts, title, version});
   } else {
