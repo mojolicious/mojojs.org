@@ -107,7 +107,7 @@ ul { list-style-type: square }
   top: 245px;
 }
 #mojo-fun {
-  background: url(/public/mojo/digitalforest.png) repeat-x;
+  background: url(/static/mojo/digitalforest.png) repeat-x;
   height: 450px;
   text-align: center;
 }
