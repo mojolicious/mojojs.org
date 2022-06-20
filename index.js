@@ -16,7 +16,7 @@ for (const docDir of docDirs) {
   break;
 }
 
-const news = app.any('/news/*file').to({file: null});
+const news = app.any('/news/*file');
 app.plugin(newsPlugin, {dir: app.home.child('news'), route: news});
 
 app.get('/', async ctx => {
