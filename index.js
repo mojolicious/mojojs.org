@@ -28,7 +28,7 @@ app.any('/docs/*file').to('docs#index', {file: null});
 app.any('/news/*file').to('news#index');
 
 app.get('/', async ctx => {
-  await ctx.render({view: 'mojojs/index'});
+  await ctx.render({view: 'index'});
 });
 
 app.start();
