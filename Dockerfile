@@ -4,6 +4,7 @@ WORKDIR /opt/mojojs
 COPY package.json package-lock.json index.js fortune.txt ./
 COPY plugins ./plugins
 COPY public ./public
+COPY controllers ./controllers
 COPY views ./views
 
 COPY news ./news
