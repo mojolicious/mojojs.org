@@ -1,6 +1,4 @@
 import {version} from '@mojojs/core';
-import DOM from '@mojojs/dom';
-import {Parser, HtmlRenderer} from 'commonmark';
 
 export default function docsPlugin(app, config) {
   const dir = config.dir;
@@ -20,47 +18,8 @@ async function docsHandler(ctx, dir) {
   const path = dir.child(...file.split('/'));
 
   if (await path.exists()) {
-    const reader = new Parser();
-    const writer = new HtmlRenderer();
-    const parsed = reader.parse(await path.readFile('utf-8'));
-    const rendered = writer.render(parsed);
-    const dom = new DOM(rendered);
-
-    // Try to find a title
-    let title = 'Documentation';
-    const docTitle = dom.at('h1');
-    if (docTitle !== null) title = docTitle.text();
-
-    // Rewrite images
-    for (const img of dom.find('img')) {
-      img.attr['style'] = 'max-width: 100%;';
-      const src = img.attr['src'];
-      if (src === undefined || src.startsWith('images') !== true) continue;
-      img.attr['src'] = ctx.urlForFile(`/${src}`);
-    }
-
-    // Rewrite headers
-    const parts = [];
-    for (const el of dom.find('h1, h2, h3, h4')) {
-      if (el.tag === 'h1' || el.tag === 'h2' || parts.length === 0) parts.push([]);
-      const text = el.text();
-      const id = text.replaceAll(' ', '-').toLowerCase();
-      el.attr['id'] = id;
-      const link = '#' + id;
-      parts[parts.length - 1].push(text, link);
-      const permaLink = `<a href="${link}" class="permalink">#</a>`;
-      el.replaceContent(permaLink + `<a href="#toc">${text}</a>`);
-    }
-
-    // Fix highlighting
-    for (const el of dom.find('pre > code')) {
-      const attr = el.attr['class'] ?? '';
-      if (/langauge-.+/.test(attr) === true) continue;
-      el.attr['class'] = attr === '' ? 'nohighlight' : `${attr} nohighlight`;
-    }
-
-    const docs = dom.toString();
-    await ctx.render({view: 'mojojs/docs'}, {docs, file, parts, title, version});
+    const {html, sections, title} = ctx.markdownToArticle(await path.readFile('utf-8'));
+    await ctx.render({view: 'mojojs/docs'}, {docs: html, file, sections, title, version});
   } else {
     await ctx.notFound();
   }

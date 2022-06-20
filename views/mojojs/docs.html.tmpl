@@ -16,14 +16,14 @@
         </fieldset>
       </form>
       <ul>
-        % for (const part of parts) {
+        % for (const section of sections) {
           <li>
-            % const [text, target] = part.splice(0,2);
+            % const [text, target] = section.splice(0,2);
             <a href="<%= target %>"><b><%= text %></b></a>
-            % if (part.length > 0) {
+            % if (section.length > 0) {
               <ul>
-                % while (part.length > 0) {
-                  % const [text, target] = part.splice(0,2);
+                % while (section.length > 0) {
+                  % const [text, target] = section.splice(0,2);
                   <li><a href="<%= target %>"><%= text %></a></li>
                 % }
               </ul>

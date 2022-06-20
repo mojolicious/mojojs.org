@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark mojobar">
-  <a href="https://mojojs.org" id="mojobar-brand" class="navbar-brand">
+  <a href="<%= ctx.urlFor('/') %>" id="mojobar-brand" class="navbar-brand">
     <picture>
       <img src="<%= ctx.urlForFile('/mojo/logo-white.png') %>"
         srcset="<%= ctx.urlForFile('/mojo/logo-white-2x.png') %> 2x">
@@ -17,18 +17,18 @@
           Documentation
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="https://mojojs.org/docs/">Overview</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/') %>">Overview</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Introduction.md">Introduction</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Growing.md">Growing</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Routing.md">Routing</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Rendering.md">Rendering</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/User-Agent.md">User-Agent</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Cookbook.md">Cookbook</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Contributing.md">Contributing</a>
-          <a class="dropdown-item" href="https://mojojs.org/docs/FAQ.md">FAQ</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Introduction.md') %>">Introduction</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Growing.md') %>">Growing</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Routing.md') %>">Routing</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Rendering.md') %>">Rendering</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/User-Agent.md') %>">User-Agent</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Cookbook.md') %>">Cookbook</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Contributing.md') %>">Contributing</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/FAQ.md') %>">FAQ</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://mojojs.org/docs/Cheatsheet.md">Cheatsheet</a>
+          <a class="dropdown-item" href="<%= ctx.urlFor('/docs/Cheatsheet.md') %>">Cheatsheet</a>
         </div>
       </li>
       <li class="nav-item dropdown">
