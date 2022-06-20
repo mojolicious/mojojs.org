@@ -1,7 +1,7 @@
 import {version} from '@mojojs/core';
 import Path from '@mojojs/path';
 
-export default class DocsController {
+export default class NewsController {
   async index(ctx) {
     const file = ctx.stash.file ?? 'README.md';
 
