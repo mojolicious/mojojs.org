@@ -1,6 +1,6 @@
 import Path from '@mojojs/path';
 
-export default class DocsController {
+export default class Controller {
   async index(ctx) {
     const file = ctx.stash.file;
 
