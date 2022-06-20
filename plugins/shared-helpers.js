@@ -1,10 +1,20 @@
+/**
+ * @typedef { import("@mojojs/core").MojoApp } MojoApp
+ * @typedef { import("@mojojs/core").MojoContext } MojoContext
+ */
 import DOM from '@mojojs/dom';
 import {Parser, HtmlRenderer} from 'commonmark';
 
+/**
+ * @param {MojoApp} app
+ */
 export default function sharedHelpersPlugin(app) {
   app.addHelper('markdownToArticle', markdownToArticle);
 }
 
+/**
+ * @param {MojoContext} ctx
+ */
 function markdownToArticle(ctx, markdown) {
   const reader = new Parser();
   const writer = new HtmlRenderer();

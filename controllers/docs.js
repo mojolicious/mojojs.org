@@ -1,7 +1,13 @@
+/**
+ * @typedef { import("@mojojs/core").MojoContext } MojoContext
+ */
 import {version} from '@mojojs/core';
 import Path from '@mojojs/path';
 
 export default class Controller {
+  /**
+   * @param {MojoContext} ctx
+   */
   async index(ctx) {
     const file = ctx.stash.file ?? 'README.md';
 

@@ -1,5 +1,11 @@
+/**
+ * @typedef { import("@mojojs/core").MojoApp } MojoApp
+ */
 import Path from '@mojojs/path';
 
+/**
+ * @param {MojoApp} app
+ */
 export default function fortunePlugin(app, config) {
   const file = new Path(config.path);
 
