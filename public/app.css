@@ -46,3 +46,13 @@ main {
   font-size: 1.5em;
   padding: 0.2em;
 }
+@media (min-width: 768px) {
+  .mojo-footer {
+    height: 4.5rem;
+  }
+
+  .mojo-sidebar {
+    /* visible - footer - (mojobar-brand + padding + padding) */
+    min-height: calc(100vh - 4.5rem - (38px + 0.3125rem * 2 + 0.5rem * 2));
+  }
+}
