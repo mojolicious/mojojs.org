@@ -9,15 +9,15 @@ function detectDocsDirecotry() {
   for (const docDir of docDirs) {
     const dir = app.home.child(...docDir.split('/'));
     if (dir.existsSync() === false) continue;
-    return dir;
+    return dir.toString();
   }
-  throw new Error('Documentation directory not found');
+  return app.home.child('public').toString();
 }
 
-const dir = detectDocsDirecotry().toString();
-app.static.publicPaths.push(dir);
+const docDir = detectDocsDirecotry();
+app.static.publicPaths.push(docDir);
 
-app.config.docDir = dir;
+app.config.docDir = docDir;
 app.config.newsDir = app.home.child('news').toString();
 
 app.plugin(sharedHelpersPlugin);
