@@ -12,7 +12,7 @@ export default class DocsController {
 
     if (await path.exists()) {
       const {html, sections, title} = ctx.markdownToArticle(await path.readFile('utf-8'));
-      await ctx.render({view: 'mojojs/docs'}, {docs: html, file, sections, title, version});
+      await ctx.render({}, {docs: html, file, sections, title, version});
     } else {
       await ctx.notFound();
     }
