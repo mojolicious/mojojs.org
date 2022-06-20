@@ -1,5 +1,6 @@
 import docsPlugin from './plugins/docs.js';
 import fortunePlugin from './plugins/fortune.js';
+import newsPlugin from './plugins/news.js';
 import mojo from '@mojojs/core';
 
 export const app = mojo();
@@ -14,6 +15,9 @@ for (const docDir of docDirs) {
   app.plugin(docsPlugin, {dir, route});
   break;
 }
+
+const news = app.any('/news/*file').to({file: null});
+app.plugin(newsPlugin, {dir: app.home.child('news'), route: news});
 
 app.get('/', async ctx => {
   await ctx.render({view: 'mojojs/index'});

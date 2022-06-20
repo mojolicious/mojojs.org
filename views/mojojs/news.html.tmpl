@@ -1,0 +1,21 @@
+% view.layout = 'default';
+<{headerBlock}>
+  %= ctx.styleTag('/docs.css')
+<{/headerBlock}>
+% ctx.contentFor('header', await headerBlock());
+<a id="toc"></a>
+<header>
+  %= await ctx.include('menubar')
+</header>
+<div class="container">
+  <div class="row flex-wrap">
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
+      <div class="mojo-doc">
+        %== news
+      </div>
+    </main>
+  </div>
+</div>
+<footer>
+  %= await ctx.include('footer')
+</footer>
