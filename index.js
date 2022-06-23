@@ -29,8 +29,6 @@ app.plugin(fortunePlugin, {path: app.home.child('fortune.txt').toString()});
 
 app.any('/docs/*file').to('docs#index', {file: null});
 
-//app.any('/news/*file').to('news#post');
-
 app.get('/', async ctx => {
   await ctx.render({view: 'index'});
 });
