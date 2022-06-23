@@ -1,3 +1,6 @@
+author: Sebastian Riedel
+date: 2022-06-20 18:00:00Z
+---
 
 # mojo.js 1.0 - from Perl to Node.js
 

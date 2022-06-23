@@ -12,6 +12,16 @@
     <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
       <div class="mojo-doc">
         %== news
+        % if (data.author) {
+          <p>
+            <div>Author: <%= data.author %></div>
+          </p>
+        % }
+        % if (data.date) {
+          <p>
+            <div>Published: <%= data.date %></div>
+          </p>
+        % }
       </div>
     </main>
   </div>
