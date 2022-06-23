@@ -1,4 +1,6 @@
 author: Sebastian Riedel
+author_image: https://www.gravatar.com/avatar/bfa97d786f12ee3381f97bc909b88e11?s=130&d=identicon
+author_text: Sebastian is the Mojolicious Project founder and lead developer.
 date: 2022-06-20 18:00:00Z
 ---
 

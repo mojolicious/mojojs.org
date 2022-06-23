@@ -21,7 +21,7 @@ app.static.publicPaths.push(docDir);
 app.config.docDir = docDir;
 
 app.plugin(sharedHelpersPlugin);
-app.plugin(blogPlugin, {
+const blog = await app.plugin(blogPlugin, {
   route: app.get('/news'),
   configPath: app.home.child('news/feed.yaml'),
 });
