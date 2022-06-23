@@ -19,10 +19,12 @@ const docDir = detectDocsDirecotry();
 app.static.publicPaths.push(docDir);
 
 app.config.docDir = docDir;
-app.config.newsDir = app.home.child('news');
 
 app.plugin(sharedHelpersPlugin);
-app.plugin(blogPlugin, {route: app.get('/news'), options: {rootPath: app.config.newsDir}});
+app.plugin(blogPlugin, {
+  route: app.get('/news'),
+  configPath: app.home.child('news/feed.yaml'),
+});
 app.plugin(fortunePlugin, {path: app.home.child('fortune.txt').toString()});
 
 app.any('/docs/*file').to('docs#index', {file: null});

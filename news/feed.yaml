@@ -1,1 +1,4 @@
-- mojo.js-1-released
+postsPath: posts
+feed:
+  - mojo.js-1-released
+

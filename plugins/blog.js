@@ -1,31 +1,53 @@
 import Path from '@mojojs/path';
 import yaml from 'js-yaml';
 
-export default function plugin(app, {route, options}) {
+export default async function plugin(app, {route, configPath}) {
+  const blog = await Blog.fromFile(configPath);
+  if (!blog) return null;
   route.get('/').to({fn: ctx => blog.renderFeed(ctx)});
-  options.fileRoute = route.get('/*file').to({fn: ctx => blog.renderPost(ctx, ctx.stash.file)});
-  const blog = new Blog(options);
+  blog.fileRoute = route.get('/*file').to({fn: ctx => blog.renderPost(ctx, ctx.stash.file)});
   return blog;
 }
 
 class Blog {
+  static async fromFile(path) {
+    try {
+      const spec = yaml.load(await path.readFile('utf-8'));
+      const config = {};
+
+      config.postsPath = new Path(spec.postsPath ?? 'posts');
+      if (!config.postsPath.isAbsolute()) {
+        config.postsPath = path.sibling(...config.postsPath.toArray());
+      }
+
+      const blog = new Blog(config);
+
+      if (spec.feed) {
+        await blog.loadFeedFiles(spec.feed);
+      }
+
+      return blog;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+
+  }
+
   constructor(options = {}) {
-    this.rootPath = options.rootPath;
-    this.postsPath = options.postsPath ?? this.rootPath.child('posts');
-    this.authorsPath = options.authorsPath ?? this.rootPath.child('authors.yaml');
-    this.feedPath = options.feedPath ?? this.rootPath.child('feed.yaml');
+    this.postsPath = options.postsPath ?? new Path('posts');
+    this.authorsPath = options.authorsPath ?? this.postsPath.sibling('authors.yaml'); // this will almost certainly change
+    this.feed = options.feed ?? [];
     this.fileRoute = options.fileRoute;
   }
 
-  async getFeed() {
-    if (!this.feedPath.exists()) return [];
-    const contents = await this.feedPath.readFile('utf-8');
-    return await Promise.all(yaml.load(contents).map(file => this.getPost(file)));
+  async loadFeedFiles(files) {
+    const posts = await Promise.all(files.map(file => this.getPost(file)));
+    this.feed.push(...posts);
   }
 
   async renderFeed(ctx) {
-    const feed = await this.getFeed();
-    await ctx.render({json: feed.map(post => post.url())});
+    await ctx.render({json: this.feed.map(post => post.url())});
   }
 
   async getPost(file) {
@@ -83,6 +105,8 @@ class Post {
   url() {
     if (this.blog.fileRoute) {
       return this.blog.fileRoute.render({file: this.file})
+    } else {
+      return this.file;
     }
   }
 }
