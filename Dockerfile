@@ -2,6 +2,7 @@ FROM node:latest
 WORKDIR /opt/mojojs
 
 COPY package.json package-lock.json index.js fortune.txt ./
+COPY bin ./bin
 COPY plugins ./plugins
 COPY public ./public
 COPY controllers ./controllers
