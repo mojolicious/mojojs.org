@@ -14,6 +14,7 @@ RUN wget https://github.com/mojolicious/mojo.js/archive/refs/heads/main.tar.gz &
 RUN find .
 
 RUN npm i
+RUN npm run build:reference
 
 EXPOSE 3000
 ENTRYPOINT ["node", "index.js"]
