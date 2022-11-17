@@ -4,3 +4,4 @@ coverage
 /lib
 /test/support/ts/full-app/lib
 *.tsbuildinfo
+/public/reference

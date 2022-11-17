@@ -9,7 +9,7 @@ COPY views ./views
 
 COPY news ./news
 
-RUN wget https://github.com/mojolicious/mojo.js/archive/refs/heads/main.tar.gz && tar xvf main.tar.gz mojo.js-main/docs --strip-components=1 && rm main.tar.gz
+RUN wget https://github.com/mojolicious/mojo.js/archive/refs/heads/main.tar.gz && tar xvf main.tar.gz
 
 RUN find .
 

@@ -5,7 +5,7 @@ import mojo from '@mojojs/core';
 export const app = mojo();
 
 function detectDocsDirecotry() {
-  const docDirs = ['../mojo.js/docs', 'docs'];
+  const docDirs = ['../mojo.js/docs', 'mojo.js-main/docs'];
   for (const docDir of docDirs) {
     const dir = app.home.child(...docDir.split('/'));
     if (dir.existsSync() === false) continue;
