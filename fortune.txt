@@ -7,6 +7,7 @@ Fun is job 1
 It's as if a million lines of CGI cried out and were suddenly silenced
 It's not just delicious, it's Mojolicious!
 There's JavaScript in my framework!
+There's TypeScript in my framework!
 What are you waiting for?
 My story is a lot like yours, only more interesting 'cause it involves robots
 Did everything just taste purple for a second?
