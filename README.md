@@ -13,7 +13,7 @@ The [mojo.js](http://mojojs.org) website.
 
 ## Copyright And License
 
-Copyright (C) 2022, Sebastian Riedel.
+Copyright (C) 2023, Sebastian Riedel.
 
 Licensed under the CC-NC-ND License, Version 4.0
 [http://creativecommons.org/licenses/by-nc-nd/4.0](http://creativecommons.org/licenses/by-nc-nd/4.0).
