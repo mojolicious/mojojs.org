@@ -11,9 +11,14 @@ COPY views ./views
 COPY news ./news
 
 RUN wget https://github.com/mojolicious/mojo.js/archive/refs/heads/main.tar.gz && tar xvf main.tar.gz
+WORKDIR /opt/mojojs/mojo.js-main
+RUN npm i && npm run build
 
-RUN find .
+WORKDIR /opt/mojojs
+#RUN find .
 
+# install local checkout of @mojojs/core which overrides in package.json
+RUN npm i ./mojo.js-main
 RUN npm i
 RUN npm run build:reference
 
