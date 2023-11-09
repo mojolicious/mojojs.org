@@ -28,7 +28,7 @@ app.any('/docs/*file').to('docs#index', {file: null});
 app.any('/news/*file').to('news#index');
 
 app.get('/api', async ctx => {
-  await ctx.redirectTo('https://mojojs.org/static/reference/modules.html');
+  await ctx.redirectTo('https://mojojs.org/static/reference/index.html');
 });
 
 app.get('/', async ctx => {
