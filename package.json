@@ -62,8 +62,8 @@
     "stack-utils": "^2.0.3",
     "tap": "^18.5.0",
     "tough-cookie": "^4.0.0",
-    "typedoc": "^0.25.0",
-    "typescript": "^5.2.0",
+    "typedoc": "^0.28.20",
+    "typescript": "^6.0.3",
     "ws": "^8.3.0"
   }
 }
