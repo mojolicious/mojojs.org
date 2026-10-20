@@ -11,6 +11,8 @@ COPY views ./views
 COPY news ./news
 
 RUN wget https://github.com/mojolicious/mojo.js/archive/refs/heads/main.tar.gz && tar xvf main.tar.gz
+# Install mojo.js dependencies so typedoc resolves its own type packages
+RUN cd mojo.js-main && npm install --ignore-scripts
 
 RUN find .
 
